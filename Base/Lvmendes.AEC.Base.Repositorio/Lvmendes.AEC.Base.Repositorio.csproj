@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Comum\Lvmendes.AEC.Comum.Infra\Lvmendes.AEC.Comum.Infra.csproj" />
+    <ProjectReference Include="..\..\Comum\Lvmendes.AEC.Comum\Lvmendes.AEC.Comum.csproj" />
+    <ProjectReference Include="..\Lvmendes.AEC.Base.Entidade\Lvmendes.AEC.Base.Entidade.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+
+<div class="card">
+    <h4 class="card-header">Lista Permissão</h4>
+    <div class="card-body">
+       
+      
+        <ul class="list-group">
+            <li  *ngFor="let per of permissoes" class="list-group-item">
+
+                {{per.nome}} - {{per.url}}
+                <button type="button" (click)="Remover(per)" class="btn btn-danger">Remover</button>
+            </li>
+          </ul>
+          
+    </div>
+
+
+
+    
+</div>

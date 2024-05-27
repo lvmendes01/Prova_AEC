@@ -1,0 +1,27 @@
+﻿
+<div class="card">
+    <h4 class="card-header">Adicionar Permissão</h4>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <input type="text" placeholder="Nome"  placeholder="Nome" [(ngModel)]="permissao.nome" class="form-control"  />
+            </div>
+            <div class="col">
+                <input type="text"  placeholder="URL"  [(ngModel)]="permissao.url" class="form-control" />    
+            </div>
+          </div>
+          
+    </div>
+
+
+    <div class="card-footer text-muted">
+        <button [disabled]="loading" (click)="AdicionarPermissao()" class="btn btn-primary">
+            <span *ngIf="loading"  class="spinner-border spinner-border-sm me-1"></span>
+            Adicionar Permissão
+        </button>
+      </div>
+      <div class="mb-3">
+        <app-lista-permissao (listapermissoes)="RemoverPermissao($event)" [permissoes]="perfil.permissoes"></app-lista-permissao>
+      
+     </div>
+</div>

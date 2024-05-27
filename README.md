@@ -34,6 +34,13 @@ metodo para logar e recuperar  token
 Front -> Angular
 
 
+
+
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/a8844a50-acc8-476f-912b-4e1bd5a3604d)
+
+rodar o comando npm install para baixar os modulos 
+
+
 ![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/c6330d8e-48f2-4c93-a25d-49a2cc264937)
 apontamento da API
 

@@ -52,6 +52,26 @@ para rodar o front
 executar o comando ng serve
 
 
+----------------
+telas angular
+OBS -> não tive tempo para editar o mesmo 
 
+sem acesso 
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/66f8706f-7f67-45fc-8474-c135138ebab3)
+
+
+com acesso 
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/92a111c6-9191-4026-86e2-3328c86775f0)
+
+Tela Endereco
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/a6751462-564c-41c3-bbbc-c5c4345421e6)
+
+
+baixar arquivo
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/c7992964-8398-4a3d-95de-f443489a2fd9)
+
+
+cadastro de usuario 
+![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/ae649796-b773-40af-8858-a2424fd4a880)
 
 

@@ -54,7 +54,7 @@ executar o comando ng serve
 
 ----------------
 telas angular
-OBS -> não tive tempo para editar o mesmo 
+
 
 sem acesso 
 ![image](https://github.com/lvmendes01/Prova_AEC/assets/4749630/66f8706f-7f67-45fc-8474-c135138ebab3)

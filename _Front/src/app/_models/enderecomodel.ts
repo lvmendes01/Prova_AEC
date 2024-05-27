@@ -1,7 +1,7 @@
 
 export class EnderecoModel {
 
-  id?: number
+  id: number =0
   cep?: string
   logradouro?: string
   complemento?: string

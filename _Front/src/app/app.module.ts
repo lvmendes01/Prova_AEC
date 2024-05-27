@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListaEnderecoComponent } from './_components/endereco/lista-endereco/lista-endereco.component';
 import { EnderecoComponent } from './_components/endereco/endereco.component';
 
+
 @NgModule({
     imports: [
         FormsModule,
@@ -24,6 +25,7 @@ import { EnderecoComponent } from './_components/endereco/endereco.component';
         HttpClientModule,
         AppRoutingModule,
         FontAwesomeModule
+
     ],
     declarations: [
         AppComponent,

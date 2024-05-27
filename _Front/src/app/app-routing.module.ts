@@ -16,6 +16,7 @@ const routes: Routes = [
     { path: 'usuariocadastro',  component: UsuarioComponent },
     { path: 'usuario',  component: ListaUsuarioComponent, canActivate: [AuthGuard] },
     { path: 'enderecocadastro',  component: EnderecoComponent, canActivate: [AuthGuard] },
+    { path: 'enderecocadastro/:id',  component: EnderecoComponent, canActivate: [AuthGuard] },
     { path: 'endereco',  component: ListaEnderecoComponent, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
 

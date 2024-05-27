@@ -29,11 +29,20 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
         public ActionResult<RetornoApi> Salvar(EnderecoModel item)
         {
             var endereco = ModelEntidade._RecuperarEndereco(item);
-
-            var retornoChamado = servico.Adicionar(endereco);
+            var retornoChamado = "";
+            if (item.Id > 0)
+            {
+                endereco.Id = item.Id;
+                retornoChamado = servico.Atualizar(endereco);
+            }
+            else
+            {
+                retornoChamado = servico.Adicionar(endereco);
+                
+            }
             return new RetornoApi
             {
-                Resultado = true,
+                Resultado = retornoChamado,
                 Status = retornoChamado == "Ok",
                 Mensagem = retornoChamado == "Ok" ? "Cadastrado com Sucesso!" : retornoChamado
 
@@ -70,13 +79,28 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
             var retornoChamado = servico.Atualizar(item);
             return new RetornoApi
             {
-                Resultado = true,
+                Resultado = retornoChamado,
                 Status = retornoChamado == "Atualizar com sucesso!!",
                 Mensagem = retornoChamado
 
             };
         }
 
+        [HttpDelete("Deleta")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
+        public ActionResult<RetornoApi> Deletar(Int64 id)
+        {
+            var retornoChamado = servico.Deletar(s=>s.Id == id);
+            return new RetornoApi
+            {
+                Resultado = true,
+                Status = retornoChamado == "Removido com sucesso!!",
+                Mensagem = retornoChamado
+
+            };
+        }
         /// <summary>
         /// Lista os itens da To-do list.
         /// </summary>

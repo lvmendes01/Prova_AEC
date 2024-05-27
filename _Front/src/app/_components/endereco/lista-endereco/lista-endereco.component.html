@@ -6,7 +6,8 @@
     <div class="card-body">
         <button type="button" class="btn btn-primary" (click)="btnCadastro();">Cadastro</button>
 
-        <button type="button" class="btn btn-primary" (click)="btnBaixar();">Baixar</button>
+        |
+        <button type="button" class="btn btn-info" (click)="btnBaixar();">Baixar</button>
 
     <input class="form-control mt-2 mb-2" type="text" [(ngModel)]="searchText"  (input)="Search()" placeholder="Buscar pelo Nome" />
     <table class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
@@ -19,6 +20,7 @@
           <th>uf</th>
           <th>numero</th>
           <th>complemento</th>
+          <th>Ações</th>
           </tr>
       </thead>
       <tbody>
@@ -31,6 +33,10 @@
                   <td>{{group.uf}}</td>
                   <td>{{group.numero}}</td>
                   <td>{{group.complemento}}</td>
+                  <td>
+                    <button type="button" class="btn btn-primary" (click)="btnEditar(group.id);">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="btnRemover(group.id);">Remover</button>
+                  </td>
               </tr>
       </tbody>
     </table>

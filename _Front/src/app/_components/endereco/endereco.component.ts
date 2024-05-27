@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '@app/_models';
 import { EnderecoModel } from '@app/_models/enderecomodel';
 import { RetornoApi } from '@app/_models/retornoapi';
@@ -14,14 +15,24 @@ export class EnderecoComponent implements OnInit {
   endereco= new EnderecoModel();
   loading = false;
   submitted = false;
+  EnderecoId: number=0;
   constructor(private accountService: AccountService,
     private alertService: AlertService,
+    private route: ActivatedRoute,
     private enderecoService: EnderecoService,) {
 
     this.usuario = this.accountService.userValue;
      }
 
   ngOnInit(): void {
+    this.EnderecoId = parseInt(this.route.snapshot.paramMap.get('id')??"0");
+
+    this.enderecoService.obterPorId(this.EnderecoId)
+    .subscribe((dados : RetornoApi) => {
+      if(dados.resultado){
+        this.endereco = dados.resultado as EnderecoModel ;
+      }
+    });
 
   }
   valuechange(searchValue: string): void {

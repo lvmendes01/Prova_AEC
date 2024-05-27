@@ -66,5 +66,22 @@ export class EnderecoService {
         return this.http.get<RetornoApi>(`${environment.apiUrl}Endereco/Lista`,  { headers });
     }
 
+    obterPorId(id:number) {
+      let token = this.accountService.userValue?.token;
 
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+          return this.http.get<RetornoApi>(`${environment.apiUrl}Endereco/Carregar?Id=`+id,  { headers });
+      }
+
+
+      Deleta(id:number) {
+      let token = this.accountService.userValue?.token;
+
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+          return this.http.delete<RetornoApi>(`${environment.apiUrl}Endereco/Deleta?Id=`+id,  { headers });
+      }
 }

@@ -27,21 +27,22 @@ export class AccountService {
 
     login(username: string, password: string) {
 
-        
-        return this.http.get<RetornoApi>(`${environment.apiUrl}Usuario/Login?login=${username}&senha=${password}`)
+
+        return this.http.get<RetornoApi>(`${environment.apiUrl}auth/login?username=${username}&password=${password}`)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                
+
                 if(user.status)
                 {
                     localStorage.setItem('user', JSON.stringify(user.resultado));
                     let usuario = user.resultado as User;
+                    usuario.token = user.mensagem;
                     this.userSubject.next(usuario);
                     return user;
                 }
                 return null;
             }));
-            
+
     }
 
     logout() {

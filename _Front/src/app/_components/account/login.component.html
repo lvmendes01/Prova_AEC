@@ -3,7 +3,7 @@
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Telefone</label>
+                <label class="form-label">Uusario</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
@@ -21,7 +21,8 @@
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     Login
                 </button>
-               <!-- <a routerLink="../register" class="btn btn-link">Register</a>-->
+                <button type="button" class="btn btn-primary" (click)="btnCadastro();">Cadastro</button>
+
             </div>
         </form>
     </div>

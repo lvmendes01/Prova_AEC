@@ -20,7 +20,7 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
             _configuration = configuration;
             servico = _servico;
         }
-        [HttpPost("/api/auth/login")]
+        [HttpGet("/api/auth/login")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<RetornoApi> login(string username, string password)
@@ -42,8 +42,9 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
                 var tokengerado = new JwtSecurityTokenHandler().WriteToken(token);
                 return new RetornoApi
                 {
-                    Resultado = tokengerado,
+                    Resultado = usuario,
                     Status = true,
+                    Mensagem = tokengerado 
                 };
             }
 

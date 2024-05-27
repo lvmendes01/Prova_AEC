@@ -2,9 +2,8 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-        <a class="nav-item nav-link" routerLink="/perfil" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Perfil</a>
-        <a class="nav-item nav-link" routerLink="/usuario" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Usuario</a>
-       
+        <a class="nav-item nav-link" routerLink="/endereco" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Endereço</a>
+
 
         <button class="btn btn-link nav-item nav-link" (click)="logout()">Sair</button>
     </div>

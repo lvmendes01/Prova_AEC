@@ -11,16 +11,16 @@ import { UsuarioModel, UsuarioModelSalvar } from '@app/_models/usuariomodel';
 
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
-  
+
 
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
-      
+
     }
     salvarUsuario(usuario: UsuarioModelSalvar) {
-        return this.http.post(`${environment.apiUrl}Usuario/AdicionarUsuario`, usuario);
+        return this.http.post(`${environment.apiUrl}Usuario/Salvar`, usuario);
     }
 
     listar() {

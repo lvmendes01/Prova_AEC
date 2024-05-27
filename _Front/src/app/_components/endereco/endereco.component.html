@@ -1,0 +1,59 @@
+<div class="card">
+    <h4 class="card-header">Cadastro de Enderecos</h4>
+    <div class="card-body">
+
+
+            <div class="mb-3">
+                <label class="form-label">cep</label>
+                <input type="text"  (ngModelChange)="valuechange($event)"  [(ngModel)]="endereco.cep" class="form-control"  />
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-3">
+                <label class="form-label">bairro</label>
+                <input type="text" [(ngModel)]="endereco.bairro" class="form-control"  />
+
+            </div>
+            <div class="col-3">
+              <label class="form-label">cidade</label>
+              <input type="text" [(ngModel)]="endereco.cidade" class="form-control"  />
+
+          </div>
+          <div class="col-3">
+            <label class="form-label">logradouro</label>
+            <input type="text" [(ngModel)]="endereco.logradouro" class="form-control"  />
+
+        </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <label class="form-label">complemento</label>
+                <input type="text" [(ngModel)]="endereco.complemento" class="form-control"  />
+
+            </div>
+            <div class="col-3">
+              <label class="form-label">numero</label>
+              <input type="text" [(ngModel)]="endereco.numero" class="form-control"  />
+
+          </div>
+          <div class="col-3">
+            <label class="form-label">uf</label>
+            <input type="text" [(ngModel)]="endereco.uf" class="form-control"  />
+
+        </div>
+            </div>
+
+
+    </div>
+
+
+    <div class="card-footer text-muted">
+        <button [disabled]="loading" (click)="Salvar()" class="btn btn-primary">
+            <span *ngIf="loading"  class="spinner-border spinner-border-sm me-1"></span>
+            Salvar endereco
+        </button>
+      </div>
+
+</div>

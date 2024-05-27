@@ -1,0 +1,38 @@
+
+
+
+<div class="card">
+    <h4 class="card-header">Lista Endereços</h4>
+    <div class="card-body">
+        <button type="button" class="btn btn-primary" (click)="btnCadastro();">Cadastro</button>
+
+        <button type="button" class="btn btn-primary" (click)="btnBaixar();">Baixar</button>
+
+    <input class="form-control mt-2 mb-2" type="text" [(ngModel)]="searchText"  (input)="Search()" placeholder="Buscar pelo Nome" />
+    <table class="table table-striped table-bordered table-sm row-border hover" id="datatableexample">
+      <thead>
+        <tr>
+          <th>CEP</th>
+          <th>logradouro</th>
+          <th>bairro</th>
+          <th>cidade</th>
+          <th>uf</th>
+          <th>numero</th>
+          <th>complemento</th>
+          </tr>
+      </thead>
+      <tbody>
+
+              <tr *ngFor="let group of Enderecos">
+                  <td>{{group.cep}}</td>
+                  <td>{{group.logradouro}}</td>
+                  <td>{{group.bairro}}</td>
+                  <td>{{group.cidade}}</td>
+                  <td>{{group.uf}}</td>
+                  <td>{{group.numero}}</td>
+                  <td>{{group.complemento}}</td>
+              </tr>
+      </tbody>
+    </table>
+</div>
+</div>

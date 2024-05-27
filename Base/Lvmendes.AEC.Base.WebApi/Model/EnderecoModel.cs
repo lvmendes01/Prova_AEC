@@ -38,7 +38,7 @@ namespace Lvmendes.AEC.Base.WebApi.Model
                 cidade = entidade.cidade,
                 complemento = entidade.complemento,
                 logradouro = entidade.logradouro,
-                numero = "",
+                numero = entidade.numero,
                 uf = entidade.uf,
                 Usuario = new UsuarioEntidade { Id = entidade.UsuarioId}
             };

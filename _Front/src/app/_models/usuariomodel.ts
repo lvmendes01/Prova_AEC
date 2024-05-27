@@ -11,10 +11,9 @@ export class UsuarioModel {
 }
 export class UsuarioModelSalvar {
 
-    nome?: string
-    login?: string
-    perfil?: number
+  usuario?: string
+  nome?: string
+  senha?: number
 
 }
 
-    

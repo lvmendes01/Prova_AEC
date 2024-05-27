@@ -10,13 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components/alert';
-import { CadastroPerfilComponent } from './_components/perfil';
-import { CadastroPermissaoComponent } from './_components/permissao';
-import { ListaPermissaoComponent } from './_components/permissao/lista-permissao/lista-permissao.component';
-import { ListaPerfilComponent } from './_components/perfil/lista-perfil/lista-perfil.component';
 import { UsuarioComponent } from './_components/usuario/usuario.component';
 import { ListaUsuarioComponent } from './_components/usuario/lista-usuario/lista-usuario.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ListaEnderecoComponent } from './_components/endereco/lista-endereco/lista-endereco.component';
+import { EnderecoComponent } from './_components/endereco/endereco.component';
 
 @NgModule({
     imports: [
@@ -30,12 +28,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     declarations: [
         AppComponent,
         AlertComponent,
-        CadastroPerfilComponent,
-        CadastroPermissaoComponent,
-        ListaPermissaoComponent,
-        ListaPerfilComponent,
         UsuarioComponent,
-        ListaUsuarioComponent
+        ListaUsuarioComponent,
+        EnderecoComponent,
+        ListaEnderecoComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

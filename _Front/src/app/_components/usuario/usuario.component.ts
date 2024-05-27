@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Perfil, Permiss } from '@app/_models';
-import { UsuarioModel, UsuarioModelSalvar } from '@app/_models/usuariomodel';
-import { PerfilService } from '@app/_services/perfil.service';
+import { Router } from '@angular/router';
+import { RetornoApi } from '@app/_models/retornoapi';
+import {  UsuarioModelSalvar } from '@app/_models/usuariomodel';
+import { AlertService } from '@app/_services';
 import { UsuarioService } from '@app/_services/usuario.service';
 
 @Component({
@@ -10,40 +11,35 @@ import { UsuarioService } from '@app/_services/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  usuario= new UsuarioModel();
-  perfis = new Array<Perfil>();
-  perfil = new Perfil();
+  usuario= new UsuarioModelSalvar();
   loading = false;
   submitted = false;
   constructor(
-    private perfilService: PerfilService,
-    private usuarioService: UsuarioService,) { }
+    private usuarioService: UsuarioService,
+    private router: Router,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
 
-    this.perfilService.listar().subscribe(
-      (dados)=>{
-this.perfis = dados.resultado as Array<Perfil>;
-      }
-    );
+
   }
 
   Salvar(){
 
-  
-    let usuario = new UsuarioModelSalvar;
-    usuario.login = this.usuario.login;
-    usuario.perfil =this.perfil.id;
-    usuario.nome = this.usuario.nome;
-    this.usuarioService.salvarUsuario(usuario)
-    .subscribe((dados)=>{
 
-      if(dados != null){
-        
+    this.usuarioService.salvarUsuario(this.usuario)
+    .subscribe((dados : RetornoApi) => {
+      if(dados.resultado){
+
+
+        this.alertService.success(dados.mensagem??"");
+        this.router.navigateByUrl('/');
+      }else{
+
+        this.alertService.error(dados.mensagem??"");
       }
+    });
 
-    })
-    
 
 
   }

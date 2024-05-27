@@ -7,6 +7,7 @@ using Lvmendes.AEC.Comum.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace Lvmendes.AEC.Base.WebApi.Controllers
 {
@@ -122,6 +123,23 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
             return retorno;
         }
 
-        
+        /// <summary>
+        /// Lista os itens da To-do list.
+        /// </summary>
+        /// <returns>Os itens da To-do list</returns>
+        /// <response code="200">Returna os itens da To-do list cadastrados</response>
+        [HttpGet("RecuperarArquivoCSVEnderecos/{nomearquivo}")]
+        [Authorize]
+        public IActionResult RecuperarArquivoCSVEnderecos(string nomearquivo)
+        {
+            var retornoChamado = servico.RecuperarArquivoCSVEnderecos();
+
+
+            var arquvio = File(Encoding.UTF8.GetBytes(retornoChamado), "text/csv", nomearquivo + ".csv");
+
+            return arquvio;
+        }
+
+
     }
 }

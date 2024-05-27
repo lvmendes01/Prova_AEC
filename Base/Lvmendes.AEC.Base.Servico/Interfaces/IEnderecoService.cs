@@ -8,5 +8,7 @@ namespace Lvmendes.AEC.Base.Servico.Interfaces
     public interface IEnderecoService : IComumInterfaces<EnderecoEntidade>
     {
         EnderecoEntidade ObterDadosAtravesCep(string cep);
+
+        string RecuperarArquivoCSVEnderecos();
     }
 }

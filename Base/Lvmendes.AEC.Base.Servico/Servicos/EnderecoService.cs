@@ -3,6 +3,7 @@ using Lvmendes.AEC.Base.Entidade.Entidades;
 using Lvmendes.AEC.Base.Repositorio.Interfaces;
 using Lvmendes.AEC.Base.Servico.Interfaces;
 using Lvmendes.AEC.Comum.Interfaces;
+using Lvmendes.AEC.Comum.Servicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,20 @@ namespace Lvmendes.AEC.Base.Servico.Servicos
 
         public string Adicionar(EnderecoEntidade entity)
         {
+
+
+            var enderecoLsita = EnderecoRepositorio.ObterFiltros(s => s.cep == entity.cep);
+
+            if(enderecoLsita.Count > 0 && enderecoLsita.Exists(s=>s.numero == entity.numero && s.complemento == entity.complemento))
+            {
+                return "Ja existe Endereço cadastrado";
+            }
+
+
+
             var usuario = UsuarioRepositorio.Primeiro(s => s.Id == entity.Usuario.Id);
+
+
 
             entity.Usuario = usuario;
             entity.DataCadastro = DateTime.Now;
@@ -93,6 +107,13 @@ namespace Lvmendes.AEC.Base.Servico.Servicos
         public EnderecoEntidade Procurar(params object[] key)
         {
             return EnderecoRepositorio.Procurar(key);
+        }
+
+        public string RecuperarArquivoCSVEnderecos()
+        {
+            var listaEnderecos = ObterTodos(false).ToList();
+       
+            return CsvHelper.WriteCsv(listaEnderecos); 
         }
     }
 }

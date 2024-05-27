@@ -26,10 +26,15 @@ namespace Lvmendes.AEC.Base.WebApi.Controllers
         [HttpPost("Salvar")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<RetornoApi> Salvar(UsuarioEntidade payload)
-        {        
+        public ActionResult<RetornoApi> Salvar(UsuarioModel payload)
+        {
 
-            var retornoChamado = servico.Adicionar(payload);
+            var retornoChamado = servico.Adicionar(new UsuarioEntidade
+            {
+                nome = payload.nome,
+                Senha = payload.Senha,
+                usuario = payload.usuario
+            }); ;
             return new RetornoApi
             {
                 Resultado = true,
